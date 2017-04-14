@@ -9,7 +9,7 @@ No requirements.
 ## Role Variables
 
 - `spideroak_temp_debdir`: optional
-- `spideroak_url`: optional
+- `spideroak_download_url`: optional
 - `spideroak_gpg_key`: optional
 
 ## Dependencies

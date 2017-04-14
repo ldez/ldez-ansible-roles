@@ -9,7 +9,7 @@
 
 - name: "SpiderOak download"
   get_url:
-    url: "{{ spideroak_url }}"
+    url: "{{ spideroak_download_url }}"
     dest: "{{ spideroak_temp_debdir }}/spideroakone.deb"
   when: spideroak_installed.rc == 1
 
