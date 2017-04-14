@@ -2,6 +2,8 @@
 
 Dropbox installation for Ubuntu.
 
+https://www.dropbox.com/install-linux
+
 ## Requirements
 
 No requirements.
