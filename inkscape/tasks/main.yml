@@ -1,0 +1,14 @@
+---
+
+- name: "Inkscape PPA"
+  sudo: yes
+  apt_repository:
+    repo: "{{ inkscape_ppa }}"
+    update_cache: yes
+    state: present
+
+- name: "Inkscape install"
+  sudo: yes
+  apt:
+    name: inkscape
+    state: present
