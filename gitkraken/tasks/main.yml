@@ -1,0 +1,20 @@
+---
+# GitKraken - https://www.gitkraken.com/download
+
+- name: "Check if GitKraken is installed"
+  command: "dpkg-query -W gitkraken"
+  register: gitkraken_installed
+  failed_when: gitkraken_installed.rc > 1
+  changed_when: gitkraken_installed.rc == 1
+
+- name: "GitKraken download"
+  get_url:
+    url: "{{ gitkraken_download_url }}"
+    dest: "{{ gitkraken_temp_debdir }}/gitkraken-amd64.deb"
+  when: gitkraken_installed.rc == 1
+
+- name: "GitKraken install"
+  apt:
+    deb: "{{ gitkraken_temp_debdir }}/gitkraken-amd64.deb"
+  sudo: true
+  when: gitkraken_installed.rc == 1
