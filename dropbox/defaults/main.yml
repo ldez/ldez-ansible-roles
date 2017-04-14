@@ -1,0 +1,3 @@
+---
+dropbox_version: "2015.10.28"
+dropbox_temp_debdir: "/home/{{ ansible_env.USER }}/Downloads"
