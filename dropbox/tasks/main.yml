@@ -9,7 +9,7 @@
 
 - name: "Dropbox download"
   get_url:
-    url: "https://www.dropbox.com/download?dl=packages/debian/dropbox_{{ dropbox_version }}_amd64.deb"
+    url: "{{ dropbox_url }}"
     dest: "{{ dropbox_temp_debdir }}/dropbox_{{ dropbox_version }}_amd64.deb"
   when: dropbox_installed.rc == 1
 

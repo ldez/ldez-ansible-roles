@@ -10,8 +10,8 @@ No requirements.
 
 ## Role Variables
 
-- `dropbox_version` : required
-- `dropbox_temp_debdir`: required
+- `dropbox_version` : optional
+- `dropbox_temp_debdir`: optional
 
 ## Dependencies
 
