@@ -1,0 +1,27 @@
+---
+# SpiderOak - https://spideroak.com/opendownload
+
+- name: "Check if SpiderOak is installed"
+  command: "dpkg-query -W spideroakone"
+  register: spideroak_installed
+  failed_when: spideroak_installed.rc > 1
+  changed_when: spideroak_installed.rc == 1
+
+- name: "SpiderOak download"
+  get_url:
+    url: "{{ spideroak_url }}"
+    dest: "{{ spideroak_temp_debdir }}/spideroakone.deb"
+  when: spideroak_installed.rc == 1
+
+- name: "SpiderOak install"
+  apt:
+    deb: "{{ spideroak_temp_debdir }}/spideroakone.deb"
+  sudo: true
+  when: spideroak_installed.rc == 1
+
+- name: "SpiderOak GPG key"
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: "{{ spideroak_gpg_key }}"
+    state: present
+  sudo: true

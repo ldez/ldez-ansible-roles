@@ -1,0 +1,4 @@
+---
+spideroak_url: "https://spideroak.com/getbuild?platform=ubuntu&arch=x86_64"
+spideroak_temp_debdir: "/home/{{ ansible_env.USER }}/Downloads"
+spideroak_gpg_key: "573E3D1C51AE1B3D"
