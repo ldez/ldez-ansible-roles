@@ -3,7 +3,7 @@
 - name: "Ubuntu Make PPA"
   sudo: yes
   apt_repository:
-    repo: "{{ ubuntu-make_ppa }}"
+    repo: "{{ ubuntu_make_ppa }}"
     update_cache: yes
     state: present
 

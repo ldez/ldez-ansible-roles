@@ -8,7 +8,7 @@ No requirements.
 
 ## Role Variables
 
-- `ubuntu-make_ppa` : optional
+- `ubuntu_make_ppa` : optional
 
 ## Dependencies
 

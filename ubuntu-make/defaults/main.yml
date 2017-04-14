@@ -1,2 +1,2 @@
 ---
-ubuntu-make_ppa: "ppa:ubuntu-desktop/ubuntu-make"
+ubuntu_make_ppa: "ppa:ubuntu-desktop/ubuntu-make"
