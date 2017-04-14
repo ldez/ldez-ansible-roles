@@ -1,0 +1,21 @@
+---
+
+# Atom - https://github.com/atom/atom/releases
+
+- name: "Check if Atom is installed"
+  command: "dpkg-query -W atom"
+  register: atom_installed
+  failed_when: atom_installed.rc > 1
+  changed_when: atom_installed.rc == 1
+
+- name: "Atom download"
+  get_url:
+    url: "{{ atom_download_url }}"
+    dest: "{{ atom_temp_debdir }}/atom-amd64.deb"
+  when: atom_installed.rc == 1
+
+- name: "Atom install"
+  apt:
+    deb: "{{ atom_temp_debdir }}/atom-amd64.deb"
+  sudo: true
+  when: atom_installed.rc == 1
