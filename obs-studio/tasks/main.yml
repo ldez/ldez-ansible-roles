@@ -3,7 +3,7 @@
 - name: "OBS Studio PPA"
   sudo: yes
   apt_repository:
-    repo: "{{ obs-studio_ppa }}"
+    repo: "{{ obs_studio_ppa }}"
     update_cache: yes
     state: present
 

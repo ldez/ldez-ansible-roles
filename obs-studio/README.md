@@ -8,7 +8,7 @@ No requirements.
 
 ## Role Variables
 
-- `obs-studio_ppa` : optional
+- `obs_studio_ppa` : optional
 
 ## Dependencies
 
