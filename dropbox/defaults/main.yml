@@ -1,4 +1,4 @@
 ---
 dropbox_version: "2015.10.28"
 dropbox_temp_debdir: "/home/{{ ansible_env.USER }}/Downloads"
-dropbox_url: "https://www.dropbox.com/download?dl=packages/debian/dropbox_{{ dropbox_version }}_amd64.deb"
+dropbox_download_url: "https://www.dropbox.com/download?dl=packages/debian/dropbox_{{ dropbox_version }}_amd64.deb"

@@ -12,6 +12,7 @@ No requirements.
 
 - `dropbox_version` : optional
 - `dropbox_temp_debdir`: optional
+- `dropbox_download_url`: optional
 
 ## Dependencies
 
