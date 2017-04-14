@@ -1,0 +1,14 @@
+---
+
+- name: "Git PPA"
+  sudo: yes
+  apt_repository:
+    repo: "{{ git_ppa }}"
+    update_cache: yes
+    state: present
+
+- name: "Git install"
+  sudo: yes
+  apt:
+    name: git
+    state: present
