@@ -1,0 +1,14 @@
+---
+
+- name: "Homebank PPA"
+  sudo: yes
+  apt_repository:
+    repo: "{{ homebank_ppa }}"
+    update_cache: yes
+    state: present
+
+- name: "Homebank install"
+  sudo: yes
+  apt:
+    name: homebank
+    state: present
