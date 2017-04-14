@@ -1,0 +1,14 @@
+---
+
+- name: "Ubuntu Make PPA"
+  sudo: yes
+  apt_repository:
+    repo: "{{ ubuntu-make_ppa }}"
+    update_cache: yes
+    state: present
+
+- name: "Ubuntu Make install"
+  sudo: yes
+  apt:
+    name: ubuntu-make
+    state: present
