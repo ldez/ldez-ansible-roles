@@ -1,0 +1,7 @@
+galaxy_info:
+  author: Ludovic Fernandez
+  description: roles library
+  company: ldez Factory
+  license: MIT
+  min_ansible_version: 2.0.1
+dependencies: []
