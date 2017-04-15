@@ -1,0 +1,22 @@
+---
+
+# Yarn - https://yarnpkg.com/en/docs/install
+
+- name: "Yarn GPG key"
+  sudo: yes
+  apt_key:
+    url: "{{ yarn_gpg_url }}"
+    state: present
+
+- name: "Yarn repository"
+  sudo: yes
+  apt_repository:
+    repo: "{{ yarn_repo }}"
+    state: present
+    filename: 'yarn'
+
+- name: "Yarn install"
+  sudo: yes
+  apt:
+    name: yarn
+    state: present
