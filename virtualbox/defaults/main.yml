@@ -1,0 +1,4 @@
+---
+virtualbox_repo: "deb http://download.virtualbox.org/virtualbox/debian xenial contrib"
+virtualbox_gpg_url: "https://www.virtualbox.org/download/oracle_vbox_2016.asc"
+virtualbox_version: "5.1"

@@ -1,0 +1,22 @@
+---
+
+# Virtual Box - https://www.virtualbox.org/wiki/Linux_Downloads
+
+- name: "Virtual Box GPG key"
+  sudo: yes
+  apt_key:
+    url: "{{ virtualbox_gpg_url }}"
+    state: present
+
+- name: "Virtual Box repository"
+  sudo: yes
+  apt_repository:
+    repo: "{{ virtualbox_repo }}"
+    state: present
+    filename: 'virtualbox'
+
+- name: "Virtual Box install"
+  sudo: yes
+  apt:
+    name: "virtualbox-{{ virtualbox_version }}"
+    state: present
