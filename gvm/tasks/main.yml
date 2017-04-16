@@ -5,7 +5,6 @@
   stat:
     path: "/home/{{ ansible_env.USER }}/.gvm/scripts/gvm"
   register: gvm_installed
-  tags: toto
 
 - name: Install GVM
   shell: bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)

@@ -1,16 +1,16 @@
 ---
 
 - name: "Ansible PPA"
-  sudo: yes
   apt_repository:
     repo: "{{ ansible_ppa }}"
     update_cache: yes
     state: present
+  sudo: yes
 
 - name: "Ansible install"
-  sudo: yes
   apt:
     name:
       - software-properties-common
       - ansible
-    state: present
+    state: latest
+  sudo: yes

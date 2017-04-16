@@ -1,14 +1,14 @@
 ---
 
 - name: "Silent Cast PPA"
-  sudo: yes
   apt_repository:
     repo: "{{ silentcast_ppa }}"
     update_cache: yes
     state: present
+  sudo: yes
 
 - name: "Silent Cast install"
-  sudo: yes
   apt:
     name: silentcast
-    state: present
+    state: latest
+  sudo: yes

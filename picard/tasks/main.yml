@@ -2,15 +2,15 @@
 # Picard - ppa:musicbrainz-developers/daily - ppa:musicbrainz-developers/stable
 
 - name: "Musicbrainz PPA"
-  sudo: yes
   apt_repository:
     repo: "{{ picard_ppa }}"
     update_cache: yes
     state: present
+  sudo: yes
 
 - name: "Picard install"
-  sudo: yes
   apt:
     name: picard
-    state: present
+    state: latest
+  sudo: yes
 

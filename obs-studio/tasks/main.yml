@@ -1,14 +1,14 @@
 ---
 
 - name: "OBS Studio PPA"
-  sudo: yes
   apt_repository:
     repo: "{{ obs_studio_ppa }}"
     update_cache: yes
     state: present
+  sudo: yes
 
 - name: "OBS Studio install"
-  sudo: yes
   apt:
     name: obs-studio
-    state: present
+    state: latest
+  sudo: yes

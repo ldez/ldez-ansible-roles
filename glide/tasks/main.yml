@@ -2,14 +2,14 @@
 # Glide
 
 - name: "Glide PPA"
-  sudo: yes
   apt_repository:
     repo: "{{ glide_ppa }}"
     update_cache: yes
     state: present
+  sudo: yes
 
 - name: "Glide install"
-  sudo: yes
   apt:
     name: glide
-    state: present
+    state: latest
+  sudo: yes

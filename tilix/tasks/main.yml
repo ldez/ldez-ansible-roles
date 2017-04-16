@@ -1,14 +1,14 @@
 ---
 
 - name: "Tilix PPA"
-  sudo: yes
   apt_repository:
     repo: "{{ tilix_ppa }}"
     update_cache: yes
     state: present
+  sudo: yes
 
 - name: "Tilix install"
-  sudo: yes
   apt:
     name: tilix
-    state: present
+    state: latest
+  sudo: yes
