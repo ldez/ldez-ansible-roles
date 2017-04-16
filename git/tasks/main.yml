@@ -1,4 +1,5 @@
 ---
+# Git
 
 - name: "Git PPA"
   apt_repository:
@@ -12,3 +13,17 @@
     name: git
     state: latest
   sudo: yes
+
+# Git config
+
+- name: "Create gitconfig file"
+  template:
+    src: template/gitconfig.j2
+    dest: "/home/{{ ansible_env.USER }}/.gitconfig"
+    backup: yes
+
+#- name: "Create gitconfig file"
+#  copy:
+#    src: ./files/.gitconfig
+#    dest: "/home/{{ ansible_env.USER }}/.gitconfig"
+#    force: no
