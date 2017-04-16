@@ -1,0 +1,46 @@
+---
+
+# Docker - https://docs.docker.com/engine/installation/linux/ubuntu/#install-using-the-repository
+
+- name: "Docker dependencies install"
+  sudo: yes
+  apt:
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+    state: present
+
+- name: "Docker GPG key"
+  sudo: yes
+  apt_key:
+    url: "{{ docker_gpg_url }}"
+    state: present
+
+- name: "Docker repository"
+  sudo: yes
+  apt_repository:
+    repo: "{{ docker_repo }}"
+    state: present
+    filename: 'docker'
+    update_cache: yes
+
+- name: "Docker install"
+  sudo: yes
+  apt:
+    name: docker-ce
+    state: present
+
+- name: "Create Docker group"
+  sudo: yes
+  group:
+    name: docker
+    state: present
+
+- name: "Add user to docker group"
+  sudo: yes
+  user:
+    name: "{{ ansible_env.USER }}"
+    groups: docker
+    append: yes

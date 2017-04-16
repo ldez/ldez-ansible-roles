@@ -1,0 +1,3 @@
+---
+docker_repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
+docker_gpg_url: "https://download.docker.com/linux/ubuntu/gpg"
