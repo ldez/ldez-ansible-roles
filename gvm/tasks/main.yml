@@ -1,0 +1,35 @@
+---
+# GVM - https://github.com/moovweb/gvm
+
+- name: Check GVM install
+  stat:
+    path: "/home/{{ ansible_env.USER }}/.gvm/scripts/gvm"
+  register: gvm_installed
+  tags: toto
+
+- name: Install GVM
+  shell: bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+  args:
+    executable: /bin/bash
+  register: gvm_result
+  when: gvm_installed.stat.exists == false
+
+- name: Check Golang target version
+  shell: "source '/home/{{ ansible_env.USER }}/.gvm/scripts/gvm' && gvm use go{{ golang_version }}"
+  args:
+    executable: /bin/bash
+  register: gvm_installed_version
+  failed_when: gvm_installed_version.rc > 1
+  changed_when: gvm_installed_version.rc == 1
+
+- name: Install Golang target version
+  shell: "source '/home/{{ ansible_env.USER }}/.gvm/scripts/gvm' && gvm install go{{ golang_version }} {{golang_install_option}}"
+  args:
+    executable: /bin/bash
+  when: gvm_installed_version.rc == 1
+
+- name: Activate Golang target version
+  shell: "source '/home/{{ ansible_env.USER }}/.gvm/scripts/gvm' && gvm use go{{ golang_version }} --default"
+  args:
+    executable: /bin/bash
+  when: gvm_installed_version.rc == 1
