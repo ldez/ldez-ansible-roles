@@ -1,0 +1,30 @@
+---
+# Gogland - https://download.jetbrains.com/go/gogland-171.3780.106.tar.gz
+
+- name: "Check Gogland existence"
+  stat:
+    path: "/opt/Gogland-{{ gogland_version }}/bin/gogland.sh"
+  register: goglang_stat
+
+- name : "Gogland install"
+  unarchive:
+    src: "{{ gogland_download_url }}"
+    remote_src: yes
+    dest: /opt/
+  sudo: yes
+  when: goglang_stat.stat.exists == False
+
+- name: "Remove previous Gogland symlink"
+  file:
+   path: "/opt/gogland"
+   state: absent
+  sudo: yes
+  when: goglang_stat.stat.exists == False
+
+- name: "Create Gogland symlink"
+  file:
+    src: "/opt/Gogland-{{ gogland_version }}"
+    dest: '/opt/gogland'
+    state: link
+  sudo: yes
+  when: goglang_stat.stat.exists == False
