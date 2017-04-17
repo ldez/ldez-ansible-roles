@@ -1,6 +1,8 @@
-# Powerline Shell
+# Powerline Fonts
 
-Powerline Shell installation for Ubuntu.
+Powerline Fonts installation for Ubuntu.
+
+https://github.com/powerline/fonts
 
 ## Requirements
 
