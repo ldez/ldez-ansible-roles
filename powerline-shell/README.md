@@ -8,8 +8,9 @@ No requirements.
 
 ## Role Variables
 
-- `powerline_shell_git_repository`: optional
+- `powerline_shell_force`: optional
 - `powerline_shell_global_dest_path`: optional
+- `powerline_shell_git_repository`: optional
 - `powerline_shell_dest_path`: optional
 - `powerline_shell_symlink`: optional
 
