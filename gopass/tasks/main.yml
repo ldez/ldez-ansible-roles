@@ -1,0 +1,22 @@
+---
+# Gopass - https://www.justwatch.com/gopass/#install
+- name: 'Check if Gopass is installed'
+  command: 'dpkg-query -W gopass'
+  register: gopass_installed
+  failed_when: gopass_installed.rc > 1
+  changed_when: gopass_installed.rc == 1
+  tags: pass
+
+- name: 'Gopass download'
+  get_url:
+    url: "{{ gopass_download_url }}"
+    dest: "{{ gopass_temp_debdir }}/gopass-amd64.deb"
+  when: gopass_installed.rc == 1
+  tags: pass
+
+- name: 'Gopass install'
+  apt:
+    deb: "{{ gopass_temp_debdir }}/gopass-amd64.deb"
+  sudo: true
+  when: gopass_installed.rc == 1
+  tags: pass
