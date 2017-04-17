@@ -1,0 +1,13 @@
+---
+
+- name: "Screen install"
+  apt:
+    name: screen
+    state: latest
+  sudo: yes
+
+- name: "Create screenrc file"
+  copy:
+    src: ./files/.screenrc
+    dest: "{{ screenrc_dest_path }}"
+    backup: yes
