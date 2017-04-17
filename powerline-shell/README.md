@@ -2,6 +2,8 @@
 
 Powerline Shell installation for Ubuntu.
 
+https://github.com/banga/powerline-shell
+
 ## Requirements
 
 No requirements.
