@@ -1,0 +1,17 @@
+---
+
+- name: Creates Global Powerline directory
+  file:
+    path: "{{ powerline_fonts_global_dest_path }}"
+    state: directory
+
+- name: Clone powerline-fonts GitHub repository
+  git:
+    repo: "{{ powerline_fonts_git_repository }}"
+    dest: "{{ powerline_fonts_dest_path }}"
+    accept_hostkey: yes
+
+- name: Generate powerline-fonts file
+  command: ./install.sh
+  args:
+    chdir: "{{ powerline_fonts_dest_path }}"

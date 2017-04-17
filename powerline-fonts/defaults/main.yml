@@ -1,0 +1,4 @@
+---
+powerline_fonts_global_dest_path: /home/{{ ansible_env.USER }}/powerline/
+powerline_fonts_git_repository: https://github.com/powerline/fonts.git
+powerline_fonts_dest_path: "{{ powerline_fonts_global_dest_path }}powerline/powerline-fonts/"
