@@ -1,0 +1,5 @@
+---
+powerline_shell_git_repository: https://github.com/banga/powerline-shell.git
+powerline_shell_global_dest_path: /home/{{ ansible_env.USER }}/powerline/
+powerline_shell_dest_path: "{{ powerline_shell_global_dest_path }}powerline-shell/"
+powerline_shell_symlink: /home/{{ ansible_env.USER }}/powerline-shell.py

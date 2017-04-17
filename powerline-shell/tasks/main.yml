@@ -1,0 +1,31 @@
+---
+
+# Powerline Shell - https://github.com/banga/powerline-shell
+
+- name: Creates Global Powerline directory
+  file:
+    path: "{{ powerline_shell_global_dest_path }}"
+    state: directory
+
+- name: Clone powerline-shell GitHub repository
+  git:
+    repo: "{{ powerline_shell_git_repository }}"
+    dest: "{{ powerline_shell_dest_path }}"
+    accept_hostkey: yes
+
+- name: Create powerline-shell configuration
+  copy:
+    remote_src: yes
+    src: "{{ powerline_shell_dest_path }}config.py.dist"
+    dest: "{{ powerline_shell_dest_path }}config.py"
+
+- name: Generate powerline-shell file
+  command: ./install.py
+  args:
+    chdir: "{{ powerline_shell_dest_path }}"
+
+- name: Create powerline-shell symlink
+  file:
+    src: "{{ powerline_shell_dest_path }}powerline-shell.py"
+    dest: "{{ powerline_shell_symlink }}"
+    state: link
