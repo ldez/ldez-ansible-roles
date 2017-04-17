@@ -8,6 +8,8 @@ No requirements.
 
 ## Role Variables
 
+- `powerline_fonts_force`: optional
+- `powerline_fonts_checked_font`: optional
 - `powerline_fonts_global_dest_path`: optional
 - `powerline_fonts_git_repository`: optional
 - `powerline_fonts_dest_path`: optional

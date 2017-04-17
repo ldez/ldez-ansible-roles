@@ -1,17 +1,25 @@
 ---
 
+- name: Check if Powerline Fonts are already installed
+  stat:
+    path: "/home/{{ ansible_env.USER }}/.local/share/fonts/Ubuntu Mono derivative Powerline.ttf"
+  register: powerline_fonts_installed
+
 - name: Creates Global Powerline directory
   file:
     path: "{{ powerline_fonts_global_dest_path }}"
     state: directory
+  when: powerline_fonts_installed.stat.exists == false or powerline_fonts_force == true
 
 - name: Clone powerline-fonts GitHub repository
   git:
     repo: "{{ powerline_fonts_git_repository }}"
     dest: "{{ powerline_fonts_dest_path }}"
     accept_hostkey: yes
+  when: powerline_fonts_installed.stat.exists == false or powerline_fonts_force == true
 
 - name: Generate powerline-fonts file
   command: ./install.sh
   args:
     chdir: "{{ powerline_fonts_dest_path }}"
+  when: powerline_fonts_installed.stat.exists == false or powerline_fonts_force == true

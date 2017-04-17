@@ -1,4 +1,8 @@
 ---
+powerline_fonts_force: false
+powerline_fonts_checked_font: "/home/{{ ansible_env.USER }}/.local/share/fonts/Ubuntu Mono derivative Powerline.ttf"
+
 powerline_fonts_global_dest_path: /home/{{ ansible_env.USER }}/powerline/
+
 powerline_fonts_git_repository: https://github.com/powerline/fonts.git
 powerline_fonts_dest_path: "{{ powerline_fonts_global_dest_path }}powerline/powerline-fonts/"
