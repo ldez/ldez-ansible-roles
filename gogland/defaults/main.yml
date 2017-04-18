@@ -2,4 +2,4 @@
 gogland_version: "171.3780.106"
 gogland_download_url: "https://download.jetbrains.com/go/gogland-{{ gogland_version }}.tar.gz"
 gogland_symlink: "/opt/gogland"
-gogland_dest: : "/opt/"
+gogland_dest: "/opt/"
