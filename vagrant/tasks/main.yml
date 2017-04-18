@@ -1,7 +1,12 @@
 ---
-# tasks file for vagrant
+- name: "Check if Vagrant is installed"
+  command: "dpkg-query -W vagrant"
+  register: vagrant_installed
+  failed_when: vagrant_installed.rc > 1
+  changed_when: vagrant_installed.rc == 1
 
 - name: "Vagrant install"
   apt:
     deb: "{{ vagrant_download_url }}"
   become: true
+  when: vagrant_installed.rc == 1
