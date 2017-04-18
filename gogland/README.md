@@ -20,7 +20,7 @@ No dependencies.
 ```yml
 - hosts: servers
   roles:
-     - { role: gogland, gogland_version: "171.3780.106" }
+     - { role: gogland, gogland_version: "171.3780.106", gogland_dest: : "/opt/", gogland_symlink: "/opt/gogland" }
 ```
 
 ## License

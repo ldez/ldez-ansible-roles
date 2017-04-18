@@ -19,7 +19,7 @@ No dependencies.
 ```yml
 - hosts: servers
   roles:
-     - { role: screen }
+     - { role: screen, screenrc_dest_path: "/home/{{ ansible_env.USER }}/.screenrc" }
 ```
 
 ## License

@@ -3,28 +3,28 @@
 
 - name: "Check Gogland existence"
   stat:
-    path: "/opt/Gogland-{{ gogland_version }}/bin/gogland.sh"
+    path: "{{ gogland_dest }}Gogland-{{ gogland_version }}/bin/gogland.sh"
   register: goglang_stat
 
 - name : "Gogland install"
   unarchive:
     src: "{{ gogland_download_url }}"
     remote_src: yes
-    dest: /opt/
+    dest: "{{ gogland_dest }}"
   sudo: yes
   when: goglang_stat.stat.exists == False
 
 - name: "Remove previous Gogland symlink"
   file:
-   path: "/opt/gogland"
+   path: "{{ gogland_symlink }}"
    state: absent
   sudo: yes
   when: goglang_stat.stat.exists == False
 
 - name: "Create Gogland symlink"
   file:
-    src: "/opt/Gogland-{{ gogland_version }}"
-    dest: '/opt/gogland'
+    src: "{{ gogland_dest }}Gogland-{{ gogland_version }}"
+    dest: "{{ gogland_symlink }}"
     state: link
   sudo: yes
   when: goglang_stat.stat.exists == False

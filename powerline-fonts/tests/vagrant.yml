@@ -1,4 +1,8 @@
 - hosts: all
   become: yes
+
+  vars:
+    powerline_fonts_force: false
+
   roles:
     - { role: powerline-fonts }

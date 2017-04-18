@@ -11,7 +11,6 @@ No requirements.
 ## Role Variables
 
 - `gopass_version`: optional
-- `gopass_temp_debdir`: optional
 - `gopass_download_url`: optional
 
 ## Dependencies
@@ -23,7 +22,7 @@ No dependencies.
 ```yml
 - hosts: servers
   roles:
-     - { role: gopass, gopass_version: '1.0.2', gopass_temp_debdir: "/home/{{ ansible_env.USER }}/Downloads" }
+     - { role: gopass, gopass_version: '1.0.2'}
 ```
 
 ## License

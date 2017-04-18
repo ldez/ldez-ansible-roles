@@ -10,7 +10,6 @@ No requirements.
 
 ## Role Variables
 
-- `gitkraken_temp_debdir`: optional
 - `gitkraken_download_url`: optional
 
 ## Dependencies
@@ -22,7 +21,7 @@ No dependencies.
 ```yml
 - hosts: servers
   roles:
-     - { role: gitkraken, gitkraken_temp_debdir: "/home/{{ ansible_env.USER }}/Downloads" }
+     - { role: gitkraken }
 ```
 
 ## License

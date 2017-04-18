@@ -10,7 +10,6 @@ No requirements.
 
 ## Role Variables
 
-- `atom_temp_debdir`: optional
 - `atom_download_url`: optional
 
 ## Dependencies
@@ -22,7 +21,7 @@ No dependencies.
 ```yml
 - hosts: servers
   roles:
-     - { role: atom, atom_temp_debdir: "/home/{{ ansible_env.USER }}/Downloads" }
+     - { role: atom }
 ```
 
 ## License

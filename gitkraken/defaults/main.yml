@@ -1,3 +1,2 @@
 ---
 gitkraken_download_url: "https://release.gitkraken.com/linux/gitkraken-amd64.deb"
-gitkraken_temp_debdir: "/home/{{ ansible_env.USER }}/Downloads"

@@ -11,7 +11,6 @@ No requirements.
 ## Role Variables
 
 - `slack_download_url`: optional
-- `slack_temp_debdir`: optional
 
 
 ## Dependencies
@@ -23,7 +22,7 @@ No dependencies.
 ```yml
 - hosts: servers
   roles:
-     - { role: slack, slack_temp_debdir: "/home/{{ ansible_env.USER }}/Downloads" }
+     - { role: slack }
 ```
 
 ## License

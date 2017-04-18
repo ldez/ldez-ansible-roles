@@ -7,15 +7,9 @@
   failed_when: spideroak_installed.rc > 1
   changed_when: spideroak_installed.rc == 1
 
-- name: "SpiderOak download"
-  get_url:
-    url: "{{ spideroak_download_url }}"
-    dest: "{{ spideroak_temp_debdir }}/spideroakone.deb"
-  when: spideroak_installed.rc == 1
-
 - name: "SpiderOak install"
   apt:
-    deb: "{{ spideroak_temp_debdir }}/spideroakone.deb"
+    deb: "{{ spideroak_download_url }}"
   sudo: true
   when: spideroak_installed.rc == 1
 

@@ -7,14 +7,8 @@
   failed_when: dropbox_installed.rc > 1
   changed_when: dropbox_installed.rc == 1
 
-- name: "Dropbox download"
-  get_url:
-    url: "{{ dropbox_download_url }}"
-    dest: "{{ dropbox_temp_debdir }}/dropbox_amd64.deb"
-  when: dropbox_installed.rc == 1
-
 - name: "Dropbox install"
   apt:
-    deb: "{{ dropbox_temp_debdir }}/dropbox_amd64.deb"
+    deb: "{{ dropbox_download_url }}"
   sudo: true
   when: dropbox_installed.rc == 1

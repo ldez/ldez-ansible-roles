@@ -23,7 +23,7 @@ No dependencies.
 ```yml
 - hosts: servers
   roles:
-     - { role: virtualbox }
+     - { role: virtualbox, virtualbox_distrib: "xenial" }
 ```
 
 ## License

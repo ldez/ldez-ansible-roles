@@ -1,3 +1,2 @@
 ---
 ocenaudio_download_url: "https://www.ocenaudio.com/downloads/ocenaudio_debian64.deb"
-ocenaudio_temp_debdir: "/home/{{ ansible_env.USER }}/Downloads"

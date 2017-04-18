@@ -7,14 +7,8 @@
   failed_when: ocenaudio_installed.rc > 1
   changed_when: ocenaudio_installed.rc == 1
 
-- name: "OcenAudio download"
-  get_url:
-    url: "{{ ocenaudio_download_url }}"
-    dest: "{{ ocenaudio_temp_debdir }}/ocenaudio_debian64.deb"
-  when: ocenaudio_installed.rc == 1
-
 - name: "OcenAudio install"
   apt:
-    deb: "{{ ocenaudio_temp_debdir }}/ocenaudio_debian64.deb"
+    deb: "{{ ocenaudio_download_url }}"
   sudo: true
   when: ocenaudio_installed.rc == 1

@@ -11,7 +11,6 @@ No requirements.
 ## Role Variables
 
 - `dropbox_version` : optional
-- `dropbox_temp_debdir`: optional
 - `dropbox_download_url`: optional
 
 ## Dependencies
@@ -23,7 +22,7 @@ No dependencies.
 ```yml
 - hosts: servers
   roles:
-     - { role: dropbox, dropbox_temp_debdir: "/home/{{ ansible_env.USER }}/Downloads" }
+     - { role: dropbox, dropbox_version: '2015.10.28' }
 ```
 
 ## License

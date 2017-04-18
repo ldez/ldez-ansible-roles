@@ -1,3 +1,2 @@
 ---
 atom_download_url: "https://atom.io/download/deb"
-atom_temp_debdir: "/home/{{ ansible_env.USER }}/Downloads"
