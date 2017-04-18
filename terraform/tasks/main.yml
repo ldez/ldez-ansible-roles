@@ -1,0 +1,16 @@
+---
+# Terraform - https://www.terraform.io/downloads.html
+
+- name: Check Terraform version
+  command: "terraform --version"
+  register: terraform_version_result
+  failed_when: terraform_version_result.rc > 2
+  changed_when: terraform_version_result.rc == 2 or terraform_version_result.rc == 1
+
+- name: Install Terraform
+  unarchive:
+    src: "{{ terraform_download_url }}"
+    dest: "{{ terraform_dest }}"
+    remote_src: yes
+  become: yes
+  when: terraform_version_result.rc == 2 or terraform_version_result.rc == 1 or terraform_version_result.stdout != terraform_expected_version
