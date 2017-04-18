@@ -5,6 +5,7 @@
 | ansible         |
 | atom            |
 | calibre         |
+| common-setup    |
 | docker          |
 | dropbox         |
 | git             |
@@ -17,6 +18,7 @@
 | inkscape        |
 | obs-studio      |
 | ocenaudio       |
+| packer          |
 | picard          |
 | powerline-fonts |
 | powerline-shell |
@@ -24,8 +26,10 @@
 | silentcast      |
 | slack           |
 | spideroak       |
+| terraform       |
 | tilix           |
 | ubuntu-make     |
+| vagrant         |
 | virtualbox      |
 | yarn            |
 
