@@ -1,0 +1,7 @@
+---
+# tasks file for vagrant
+
+- name: "Vagrant install"
+  apt:
+    deb: "{{ vagrant_download_url }}"
+  become: true
