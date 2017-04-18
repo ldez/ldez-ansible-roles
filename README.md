@@ -34,3 +34,13 @@
 ```shell
 ansible-galaxy init <role_name>
 ```
+
+## vagrant
+
+```shell
+vagrant up
+vagrant provision
+vagrant destroy
+vagrant alt
+vagrant ssh
+```
