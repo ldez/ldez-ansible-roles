@@ -6,13 +6,13 @@
     repo: "{{ git_ppa }}"
     update_cache: yes
     state: present
-  sudo: yes
+  become: yes
 
 - name: "Git install"
   apt:
     name: git
     state: latest
-  sudo: yes
+  become: yes
 
 # Git config
 

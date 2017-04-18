@@ -10,13 +10,13 @@
       - curl
       - software-properties-common
     state: latest
-  sudo: yes
+  become: yes
 
 - name: "Docker GPG key"
   apt_key:
     url: "{{ docker_gpg_url }}"
     state: present
-  sudo: yes
+  become: yes
 
 - name: "Docker repository"
   apt_repository:
@@ -24,23 +24,23 @@
     state: present
     filename: 'docker'
     update_cache: yes
-  sudo: yes
+  become: yes
 
 - name: "Docker install"
   apt:
     name: docker-ce
     state: latest
-  sudo: yes
+  become: yes
 
 - name: "Create Docker group"
   group:
     name: docker
     state: present
-  sudo: yes
+  become: yes
 
 - name: "Add user to docker group"
   user:
     name: "{{ ansible_env.USER }}"
     groups: docker
     append: yes
-  sudo: yes
+  become: yes

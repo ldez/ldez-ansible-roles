@@ -10,4 +10,4 @@
 - name: Calibre install
   shell: wget -nv -O- https://download.calibre-ebook.com/linux-installer.py | python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()"
   when: calibre_installed.rc == 2 or calibre_installed.rc == 1
-  sudo: yes
+  become: yes

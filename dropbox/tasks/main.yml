@@ -10,5 +10,5 @@
 - name: "Dropbox install"
   apt:
     deb: "{{ dropbox_download_url }}"
-  sudo: true
+  become: true
   when: dropbox_installed.rc == 1

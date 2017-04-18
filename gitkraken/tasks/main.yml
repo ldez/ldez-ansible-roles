@@ -10,5 +10,5 @@
 - name: "GitKraken install"
   apt:
     deb: "{{ gitkraken_download_url }}"
-  sudo: true
+  become: true
   when: gitkraken_installed.rc == 1

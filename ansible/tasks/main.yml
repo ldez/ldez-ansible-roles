@@ -5,7 +5,7 @@
     repo: "{{ ansible_ppa }}"
     update_cache: yes
     state: present
-  sudo: yes
+  become: yes
 
 - name: "Ansible install"
   apt:
@@ -13,4 +13,4 @@
       - software-properties-common
       - ansible
     state: latest
-  sudo: yes
+  become: yes
