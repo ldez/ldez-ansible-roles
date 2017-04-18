@@ -8,7 +8,7 @@ No requirements.
 
 ## Role Variables
 
-- `atom_download_url`: optional
+- `common_setup_extra_packages`: optional
 
 ## Dependencies
 
