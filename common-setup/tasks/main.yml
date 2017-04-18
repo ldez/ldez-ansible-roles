@@ -14,6 +14,3 @@
     path: /usr/bin/vim.basic
     #priority: 30
   become: yes
-  tags:
-    - dev
-    - vim
