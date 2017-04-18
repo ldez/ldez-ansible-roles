@@ -1,0 +1,4 @@
+---
+# List of packages to install/remove
+common_setup_packages: ["vim", "curl"]
+common_setup_extra_packages: []

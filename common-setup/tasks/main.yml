@@ -1,0 +1,19 @@
+---
+- name: Install common packages
+  package:
+    name: "{{ item }}"
+    state: latest
+  become: yes
+  with_items:
+    - "{{ common_setup_packages }}"
+    - "{{ common_setup_extra_packages }}"
+
+- name: 'Make VIM as default editor'
+  alternatives:
+    name: editor
+    path: /usr/bin/vim.basic
+    #priority: 30
+  become: yes
+  tags:
+    - dev
+    - vim
