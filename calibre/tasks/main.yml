@@ -5,9 +5,9 @@
   command: "calibre --version"
   register: calibre_installed
   failed_when: calibre_installed.rc > 2
-  changed_when: calibre_installed.rc == 2 or calibre_installed.rc == 1
+  changed_when: (calibre_installed.rc == 2 or calibre_installed.rc == 1) and calibre_force == false
 
 - name: Calibre install
-  shell: wget -nv -O- https://download.calibre-ebook.com/linux-installer.py | python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()"
-  when: calibre_installed.rc == 2 or calibre_installed.rc == 1
+  shell: "{{ calibre_cmd }}"
+  when: calibre_installed.rc == 2 or calibre_installed.rc == 1 or calibre_force == true
   become: yes

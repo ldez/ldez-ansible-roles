@@ -10,5 +10,5 @@
 - name: "OcenAudio install"
   apt:
     deb: "{{ ocenaudio_download_url }}"
-  sudo: true
+  become: true
   when: ocenaudio_installed.rc == 1

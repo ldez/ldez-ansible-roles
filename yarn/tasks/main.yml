@@ -6,17 +6,17 @@
   apt_key:
     url: "{{ yarn_gpg_url }}"
     state: present
-  sudo: yes
+  become: yes
 
 - name: "Yarn repository"
   apt_repository:
     repo: "{{ yarn_repo }}"
     state: present
     filename: 'yarn'
-  sudo: yes
+  become: yes
 
 - name: "Yarn install"
   apt:
     name: yarn
     state: latest
-  sudo: yes
+  become: yes

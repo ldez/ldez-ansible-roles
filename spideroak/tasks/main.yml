@@ -10,7 +10,7 @@
 - name: "SpiderOak install"
   apt:
     deb: "{{ spideroak_download_url }}"
-  sudo: true
+  become: true
   when: spideroak_installed.rc == 1
 
 - name: "SpiderOak GPG key"
@@ -18,4 +18,4 @@
     keyserver: keyserver.ubuntu.com
     id: "{{ spideroak_gpg_key }}"
     state: present
-  sudo: true
+  become: true

@@ -6,17 +6,17 @@
   apt_key:
     url: "{{ virtualbox_gpg_url }}"
     state: present
-  sudo: yes
+  become: yes
 
 - name: "Virtual Box repository"
   apt_repository:
     repo: "{{ virtualbox_repo }}"
     state: present
     filename: 'virtualbox'
-  sudo: yes
+  become: yes
 
 - name: "Virtual Box install"
   apt:
     name: "virtualbox-{{ virtualbox_version }}"
     state: latest
-  sudo: yes
+  become: yes

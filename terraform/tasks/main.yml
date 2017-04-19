@@ -3,9 +3,9 @@
 
 - name: Check Terraform version
   command: "terraform --version"
-  register: terraform_version_result
-  failed_when: terraform_version_result.rc > 2
-  changed_when: terraform_version_result.rc == 2 or terraform_version_result.rc == 1
+  register: terraform_installed_version
+  failed_when: terraform_installed_version.rc > 2
+  changed_when: terraform_installed_version.rc == 2 or terraform_installed_version.rc == 1
 
 - name: Install Terraform
   unarchive:
@@ -13,4 +13,4 @@
     dest: "{{ terraform_dest }}"
     remote_src: yes
   become: yes
-  when: terraform_version_result.rc == 2 or terraform_version_result.rc == 1 or terraform_version_result.stdout != terraform_expected_version
+  when: terraform_installed_version.rc == 2 or terraform_installed_version.rc == 1 or terraform_installed_version.stdout != terraform_expected_version

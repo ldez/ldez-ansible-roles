@@ -3,3 +3,5 @@ git_ppa: "ppa:git-core/ppa"
 git_email: foo@bar.com
 git_name: Foo Bar
 git_signingkey: XXXXXXXX
+git_user: "{{ ansible_env.USER }}"
+git_config_dest: /home/{{ git_user }}/.gitconfig

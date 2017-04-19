@@ -4,7 +4,7 @@
   apt:
     name: screen
     state: latest
-  sudo: yes
+  become: yes
 
 - name: "Create screenrc file"
   copy:

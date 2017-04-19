@@ -10,6 +10,7 @@ No requirements.
 
 ## Role Variables
 
+- `slack_version`: optional
 - `slack_download_url`: optional
 
 
@@ -22,7 +23,7 @@ No dependencies.
 ```yml
 - hosts: servers
   roles:
-     - { role: slack }
+     - { role: slack, slack_version: "2.5.2" }
 ```
 
 ## License

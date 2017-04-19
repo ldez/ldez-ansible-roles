@@ -5,10 +5,10 @@
     repo: "{{ tilix_ppa }}"
     update_cache: yes
     state: present
-  sudo: yes
+  become: yes
 
 - name: "Tilix install"
   apt:
     name: tilix
     state: latest
-  sudo: yes
+  become: yes

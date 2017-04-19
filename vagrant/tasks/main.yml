@@ -1,12 +1,13 @@
 ---
+
 - name: "Check if Vagrant is installed"
-  command: "dpkg-query -W vagrant"
-  register: vagrant_installed
-  failed_when: vagrant_installed.rc > 1
-  changed_when: vagrant_installed.rc == 1
+  command: "dpkg-query -W -f='${Version}' vagrant"
+  register: vagrant_installed_version
+  failed_when: vagrant_installed_version.rc > 1
+  changed_when: vagrant_installed_version.rc == 1
 
 - name: "Vagrant install"
   apt:
     deb: "{{ vagrant_download_url }}"
   become: true
-  when: vagrant_installed.rc == 1
+  when: vagrant_installed_version.rc == 1 or vagrant_installed_version.stdout != vagrant_version

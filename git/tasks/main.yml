@@ -19,7 +19,7 @@
 - name: "Create gitconfig file"
   template:
     src: template/gitconfig.j2
-    dest: "/home/{{ ansible_env.USER }}/.gitconfig"
+    dest: "{{ git_config_dest }}"
     backup: yes
 
 #- name: "Create gitconfig file"

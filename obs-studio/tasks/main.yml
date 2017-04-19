@@ -5,10 +5,10 @@
     repo: "{{ obs_studio_ppa }}"
     update_cache: yes
     state: present
-  sudo: yes
+  become: yes
 
 - name: "OBS Studio install"
   apt:
     name: obs-studio
     state: latest
-  sudo: yes
+  become: yes

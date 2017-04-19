@@ -5,10 +5,10 @@
     repo: "{{ ubuntu_make_ppa }}"
     update_cache: yes
     state: present
-  sudo: yes
+  become: yes
 
 - name: "Ubuntu Make install"
   apt:
     name: ubuntu-make
     state: latest
-  sudo: yes
+  become: yes

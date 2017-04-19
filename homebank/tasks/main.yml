@@ -5,10 +5,10 @@
     repo: "{{ homebank_ppa }}"
     update_cache: yes
     state: present
-  sudo: yes
+  become: yes
 
 - name: "Homebank install"
   apt:
     name: homebank
     state: latest
-  sudo: yes
+  become: yes

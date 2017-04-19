@@ -1,2 +1,3 @@
 ---
-screenrc_dest_path: "/home/{{ ansible_env.USER }}/.screenrc"
+screen_user: "{{ ansible_env.USER }}"
+screenrc_dest_path: "/home/{{ screen_user }}/.screenrc"

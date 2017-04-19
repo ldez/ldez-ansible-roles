@@ -3,9 +3,9 @@
 
 - name: Check Packer version
   command: "packer --version"
-  register: packer_version_result
-  failed_when: packer_version_result.rc > 2
-  changed_when: packer_version_result.rc == 2 or packer_version_result.rc == 1
+  register: packer_installed_version
+  failed_when: packer_installed_version.rc > 2
+  changed_when: packer_installed_version.rc == 2 or packer_installed_version.rc == 1
 
 - name: Install Packer
   unarchive:
@@ -13,4 +13,4 @@
     dest: "{{ packer_dest }}"
     remote_src: yes
   become: yes
-  when: packer_version_result.rc == 2 or packer_version_result.rc == 1 or packer_version_result.stdout != packer_version
+  when: packer_installed_version.rc == 2 or packer_installed_version.rc == 1 or packer_installed_version.stdout != packer_version

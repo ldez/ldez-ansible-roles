@@ -5,10 +5,10 @@
     repo: "{{ inkscape_ppa }}"
     update_cache: yes
     state: present
-  sudo: yes
+  become: yes
 
 - name: "Inkscape install"
   apt:
     name: inkscape
     state: latest
-  sudo: yes
+  become: yes

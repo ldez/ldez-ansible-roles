@@ -5,10 +5,10 @@
     repo: "{{ silentcast_ppa }}"
     update_cache: yes
     state: present
-  sudo: yes
+  become: yes
 
 - name: "Silent Cast install"
   apt:
     name: silentcast
     state: latest
-  sudo: yes
+  become: yes

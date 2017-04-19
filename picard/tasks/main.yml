@@ -6,11 +6,11 @@
     repo: "{{ picard_ppa }}"
     update_cache: yes
     state: present
-  sudo: yes
+  become: yes
 
 - name: "Picard install"
   apt:
     name: picard
     state: latest
-  sudo: yes
+  become: yes
 

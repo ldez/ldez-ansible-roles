@@ -1,15 +1,13 @@
 ---
 # Gopass - https://www.justwatch.com/gopass/#install
 - name: 'Check if Gopass is installed'
-  command: 'dpkg-query -W gopass'
-  register: gopass_installed
-  failed_when: gopass_installed.rc > 1
-  changed_when: gopass_installed.rc == 1
-  tags: pass
+  command: "dpkg-query -W -f='${Version}' gopass"
+  register: gopass_installed_version
+  failed_when: gopass_installed_version.rc > 1
+  changed_when: gopass_installed_version.rc == 1
 
 - name: 'Gopass install'
   apt:
     deb: "{{ gopass_download_url }}"
-  sudo: true
-  when: gopass_installed.rc == 1
-  tags: pass
+  become: true
+  when: gopass_installed_version.rc == 1 or gopass_installed_version.stdout != gopass_version

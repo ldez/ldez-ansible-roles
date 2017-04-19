@@ -11,14 +11,14 @@
     src: "{{ gogland_download_url }}"
     remote_src: yes
     dest: "{{ gogland_dest }}"
-  sudo: yes
+  become: yes
   when: goglang_stat.stat.exists == False
 
 - name: "Remove previous Gogland symlink"
   file:
    path: "{{ gogland_symlink }}"
    state: absent
-  sudo: yes
+  become: yes
   when: goglang_stat.stat.exists == False
 
 - name: "Create Gogland symlink"
@@ -26,5 +26,5 @@
     src: "{{ gogland_dest }}Gogland-{{ gogland_version }}"
     dest: "{{ gogland_symlink }}"
     state: link
-  sudo: yes
+  become: yes
   when: goglang_stat.stat.exists == False
