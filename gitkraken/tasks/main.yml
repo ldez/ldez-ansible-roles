@@ -11,4 +11,4 @@
   apt:
     deb: "{{ gitkraken_download_url }}"
   become: true
-  when: gitkraken_installed.rc == 1
+  when: gitkraken_installed.rc == 1 or gitkraken_force == true
