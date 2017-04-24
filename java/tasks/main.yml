@@ -1,0 +1,13 @@
+---
+- name: "Java webupd8team PPA"
+  apt_repository:
+    repo: "{{ java_ppa }}"
+    update_cache: yes
+    state: present
+  become: yes
+
+- name: "Java install"
+  apt:
+    name: "{{ java_name }}"
+    state: latest
+  become: yes
