@@ -1,0 +1,9 @@
+---
+- name: 'Virtual Env install'
+  apt:
+    name:
+      - python-pip
+      - python-dev
+      - python-virtualenv
+    state: latest
+  become: yes
