@@ -6,6 +6,10 @@
     state: present
   become: yes
 
+- name: "Java accept license"
+  shell: "echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections"
+  become: yes
+
 - name: "Java install"
   apt:
     name: "{{ java_name }}"
