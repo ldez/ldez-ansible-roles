@@ -1,0 +1,17 @@
+---
+# Tensorflow - https://www.tensorflow.org/install/install_linux
+
+- name: 'Virtual Env install'
+  apt:
+    name:
+      - python-pip
+      - python-dev
+      - python-virtualenv
+    state: latest
+  become: yes
+
+- name: 'Tensorflow install'
+  pip:
+    name: tensorflow
+    virtualenv: /home/{{ ansible_env.USER }}/tensorflow
+    virtualenv_site_packages: yes
