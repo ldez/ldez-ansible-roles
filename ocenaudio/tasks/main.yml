@@ -11,4 +11,4 @@
   apt:
     deb: "{{ ocenaudio_download_url }}"
   become: true
-  when: ocenaudio_installed.rc == 1
+  when: ocenaudio_installed.rc == 1 or ocenaudio_force == true

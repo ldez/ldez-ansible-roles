@@ -1,4 +1,5 @@
 ---
 docker_user: "{{ ansible_env.USER }}"
-docker_repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
+docker_ubuntu_distrib: xenial
+docker_repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ docker_ubuntu_distrib }} stable"
 docker_gpg_url: "https://download.docker.com/linux/ubuntu/gpg"

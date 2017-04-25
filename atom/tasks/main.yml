@@ -12,4 +12,4 @@
   apt:
     deb: "{{ atom_download_url }}"
   become: true
-  when: atom_installed.rc == 1
+  when: atom_installed.rc == 1 or atom_force == true
