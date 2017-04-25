@@ -1,0 +1,13 @@
+---
+- name: "Mercurial PPA"
+  apt_repository:
+    repo: "{{ mercurial_ppa }}"
+    update_cache: yes
+    state: present
+  become: yes
+
+- name: "Mercurial install"
+  apt:
+    name: mercurial
+    state: latest
+  become: yes
