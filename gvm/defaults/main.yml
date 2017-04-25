@@ -1,3 +1,6 @@
 ---
 golang_version: "1.4"
 golang_install_option: ""
+gvm_user: "{{ ansible_env.USER }}"
+gvm_path: "/home/{{ gvm_user }}/.gvm/scripts/gvm"
+gvm_installer_url: "https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer"

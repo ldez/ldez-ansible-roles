@@ -4,12 +4,13 @@ GVM installation for Ubuntu.
 
 ## Requirements
 
-No requirements.
+git.
 
 ## Role Variables
 
-- `golang_version`: required
-- `golang_install_option`: optional
+- `golang_version`: default `1.4`
+- `golang_install_option`: additional GVM install command options
+- `gvm_user`: remote user. Default: `ansible_env.USER`
 
 ## Dependencies
 
@@ -20,7 +21,7 @@ No dependencies.
 ```yml
 - hosts: servers
   roles:
-     - { role: gvm,  golang_version: "1.8.1" }
+     - { role: gvm,  golang_version: "1.8.1", golang_install_option="--binary" }
 ```
 
 ## License
