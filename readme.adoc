@@ -2,6 +2,59 @@
 
 Only for all flavors of Ubuntu.
 
+== Use
+
+Create library file (ex: `library_roles.yml`) with the following content:
+
+.library_roles.yml
+[source, yml]
+----
+---
+  - src: git+ssh://git@github.com:ldez/ldez-ansible-roles.git
+    name: roles
+    version: remotes/origin/master
+----
+
+.ansible.cfg
+[source, ini]
+----
+[defaults]
+roles_path=./:./roles
+----
+
+And use this command:
+
+[source, shell]
+----
+ansible-galaxy install -r library_roles.yml --force
+----
+
+== Create new role
+
+[source, shell]
+----
+ansible-galaxy init <role_name> <1>
+----
+<1> `role_name`: name of the role to create
+
+== Test with Vagrant
+
+[source, shell]
+----
+vagrant up <1>
+vagrant provision <2>
+vagrant destroy <3>
+vagrant alt <4>
+vagrant ssh <5>
+----
+<1> Create the box and run Ansible
+<2> Run Ansible
+<3> Destroy the VM
+<4> Stop the VM
+<5> SSH connection to the VM
+
+== Roles
+
 |===
 |Role Name
 
@@ -40,55 +93,5 @@ Only for all flavors of Ubuntu.
 |venv
 |virtualbox
 |yarn
+
 |===
-
-== Use
-
-Create library file (ex: `library_roles.yml`) with the following content:
-
-.library_roles.yml
-[source, yml]
-----
----
-  - src: git+ssh://git@github.com:ldez/ldez-ansible-roles.git
-    name: roles
-    version: remotes/origin/master
-----
-
-.ansible.cfg
-[source, ini]
-----
-[defaults]
-roles_path=./:./roles
-----
-
-And use this command:
-
-[source, shell]
-----
-ansible-galaxy install -r library_roles.yml --force
-----
-
-== Create new role
-
-[source, shell]
-----
-ansible-galaxy init <role_name> <1>
-----
-<1> role_name: name of the role to create
-
-== Test with Vagrant
-
-[source, shell]
-----
-vagrant up <1>
-vagrant provision <2>
-vagrant destroy <3>
-vagrant alt <4>
-vagrant ssh <5>
-----
-<1> Create the box and run Ansible
-<2> Run Ansible
-<3> Destroy the VM
-<4> Stop the VM
-<5> SSH connection to the VM
