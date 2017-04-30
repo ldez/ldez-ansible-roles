@@ -34,7 +34,7 @@
    path: "{{ intellij_symlink }}"
    state: absent
   become: yes
-  when: intellij_stat.stat.exists == False
+  when: intellij_stat.stat.exists == False and intellij_with_symlink == True
 
 - name: "Create IntelliJ symlink"
   file:
@@ -42,4 +42,4 @@
     dest: "{{ intellij_symlink }}"
     state: link
   become: yes
-  when: intellij_stat.stat.exists == False
+  when: intellij_stat.stat.exists == False and intellij_with_symlink == True
