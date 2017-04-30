@@ -1,0 +1,45 @@
+---
+# IntelliJ
+
+# EAP
+- name: IntelliJ distribution EAP
+  set_fact:
+    intellij_download_url: "{{ intellij_distribution_eap_url }}"
+    intellij_install_path: "{{ intellij_dest }}idea-IU-{{ intellij_version }}"
+  when: intellij_distribution == "EAP"
+
+# community
+- name: IntelliJ distribution community
+  set_fact:
+    intellij_download_url: "{{ intellij_distribution_community_url }}"
+    intellij_install_path: "{{ intellij_dest }}idea-IC-{{ intellij_community_patch_version }}"
+  when: intellij_distribution == "community"
+
+  # Shared
+- name: "Check IntelliJ existence"
+  stat:
+    path: "{{ intellij_install_path }}/bin/idea.sh"
+  register: intellij_stat
+
+- name: "IntelliJ install"
+  unarchive:
+    src: "{{ intellij_download_url }}"
+    remote_src: yes
+    dest: "{{ intellij_dest }}"
+  become: yes
+  when: intellij_stat.stat.exists == False
+
+- name: "Remove previous IntelliJ symlink"
+  file:
+   path: "{{ intellij_symlink }}"
+   state: absent
+  become: yes
+  when: intellij_stat.stat.exists == False
+
+- name: "Create IntelliJ symlink"
+  file:
+    src: "{{ intellij_install_path }}"
+    dest: "{{ intellij_symlink }}"
+    state: link
+  become: yes
+  when: intellij_stat.stat.exists == False

@@ -1,0 +1,12 @@
+---
+intellij_version: "2017.1.2"
+intellij_community_patch_version: "171.4249.39"
+intellij_symlink: "/opt/intellij"
+intellij_dest: "/opt/"
+# community | EAP
+intellij_distribution: "community"
+
+# Community: https://download.jetbrains.com/idea/ideaIC-2017.1.2.tar.gz - idea-IC-171.4249.39
+# EAP: https://download.jetbrains.com/idea/ideaIU-171.4424.14.tar.gz
+intellij_distribution_community_url: "https://download.jetbrains.com/idea/ideaIC-{{ intellij_version }}.tar.gz"
+intellij_distribution_eap_url: "https://download.jetbrains.com/idea/ideaIU-{{ intellij_version }}.tar.gz"
