@@ -6,7 +6,7 @@
     path: "{{ gogland_dest }}Gogland-{{ gogland_version }}/bin/gogland.sh"
   register: goglang_stat
 
-- name : "Gogland install"
+- name: "Gogland install"
   unarchive:
     src: "{{ gogland_download_url }}"
     remote_src: yes
